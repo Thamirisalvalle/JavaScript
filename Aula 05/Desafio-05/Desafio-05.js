@@ -1,29 +1,33 @@
-const sorteado = Math.floor(Math.random() * 3)
+const sorteado = Math.floor(Math.random() * 100) + 1;
 
-let contador = 0
-let chute = '0'
+let contador = 0;
+let chute = '';
 
 do{
-  console.log(sorteado)
-  console.log(contador)
-  chute = 0
-  contador ++
+  if (contador >= 4) {
+      chute = parseInt(prompt('Última chance! Tente a sorte e digite um número de 1 a 100: '));
+     } else {
+      chute = parseInt(prompt('Tenta a sorte e digite um número de 1 a 100: '));
+     }
 
-  if (contador >= 5){
-    console.log(`Gamer over o número era ${sorteado}`);
-    break    
-  }
-  
   if
-    (sorteado == chute) {
-      console.log(`Você acertou, é o ${sorteado}`)
+    (sorteado === chute) {
+      alert(`Você acertou, é o ${sorteado}`);
+      break; // se acertar vai sair do loop
+    } else if (chute > sorteado) {
+     	alert(`Tente novamente, o número é menor ! Mas lembre-se você possui mais ${4-contador} chances`)
     } else {
-      console.log(`Tente Novamente! Você possui mais ${5-contador} chances`)
-    }
-  
-  } while(chute[sorteado] != chute)
+      alert(`Tente novamente, o número é maior ! Mas lembre-se você possui mais ${4-contador} chances`)
+      } 
+      
+contador ++;
 
-  console.log(chute)
+  if (contador == 5) {
+    alert(`Game over! O número era ${sorteado}`);
+      break;
+  } 
+    
+} while(contador < 5);
 
 
 
